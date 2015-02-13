@@ -67,16 +67,12 @@ $(document).ready(function(){
 		var freeStuff = 'tea, coffee and breakfast';
 	}
 
-// Create the Instance Page Link
-
-	$(".column.purchase-module").prepend('<div class="actions" style="margin-bottom: 1rem;"><a href="' + instance + '" target="_blank" class="button fluid js-purchase-attend">Go to Instance Page</a></div>')
-
 
 // If there is a partner on the page, make the EDM file ready to download
 	if (partner1Name.length >= 1){
 
-		var textFile = null,
-		makeTextFile = function (text) {
+		var textFile = null;
+		var makeTextFile = function (text) {
 			var data = new Blob([text], {type: 'text/plain'});
 
 			// If we are replacing a previously generated file we need to
@@ -89,11 +85,25 @@ $(document).ready(function(){
 			console.log("edm is ready to download!");
 			return textFile;
 		};
-		var edm = "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'><head><meta http-equiv='Content-Type' content='text/html;' /><title>General Assembly</title></head><body><span style='font-size: 1px; color: #B8B8B8; margin: 0px;' pardot-region='preview'>" + title +"</span><div style='width: 620px; margin: auto;'><table border='0' cellpadding='0' cellspacing='0' width='620px'><tbody><tr><td style='background: white; padding-top: 44px;'></td></tr><tr><td><table border='0' cellpadding='0' cellspacing='0' width='620px'><tbody><tr><td width='30'>&nbsp;</td><td class='' style='background: white; margin-top: 30px; padding-top: 10px; padding-bottom: 10px; border-top: 1px solid black; border-bottom: 1px solid black; font-family: arial, sans-serif; font-size: 13px;' pardot-region='header'><strong>" + partner1Name + " + General Assembly present...</strong></td><td width='30'>&nbsp;</td></tr></tbody></table></td></tr><!-- End header --><tr><!-- Start body --><td class='' style='background: white; padding-bottom: 30px; padding-top: 20px; padding-left: 30px; padding-right: 30px; font-family: georgia, sans-serif; font-size: 16px; font-weight: normal; line-height: 24px; color: black;'' pardot-region='content' width='100%'><span style='font-family: georgia, serif; font-size: 67px; line-height: 75px; color: black;'>" + title + "</span><br><a href='" + url + utm + "'><img alt='Friends' height='350' src='" + img + " ' style='-webkit-transform: rotate(0rad); height: 350px; width: 560px; margin: 30px 0;' title='Sign up to Design For Change Hackathon' width='560'></a><p>" + partner1Name + " + General Assembly have teamed up to bring you the <a href='" + url + utm + "' style='color: #030303; font-family: arial, sans-serif; font-size: 15px; font-weight: bold;'>" + title + "</a> on <span style='color: #030303; font-family: arial, sans-serif; font-size: 15px; font-weight: bold;'>" + date + "</span> from " + eventTime + ". <br><br> " + topText + "</p><p><strong style='color: #030303; font-family: arial, sans-serif; font-size: 15px;'>Places are very limited and RSVPs are essential</strong>. Best of all: it's totally free, and General Assembly will be providing " + freeStuff + " for all! </p><p><a href='" + url + utm + "' style='text-decoration: none; color: white; display: inline-block; background: #ff0033; border-bottom: 3px solid #c20027; margin-bottom: 20px; margin-top: 20px; padding-top: 15px; padding-bottom: 12px; width: 560px; text-align: center; font-family: helvetica, arial, sans-serif; font-size: 20px; font-weight: bold;'>FREE Event: Register Here</a></p><p><a href='https://generalassemb.ly/" + metro + utm + "' style='color: #030303; font-family: arial, sans-serif; font-size: 15px; font-weight: bold;'>General Assembly</a> is a global tech school teaching the most relevant skills of the 21st century across technology, design, marketing and business.</p><p><a href='" + partner1Link + "' style='color: #030303; font-family: arial, sans-serif; font-size: 15px; font-weight: bold;'>" + partner1Name + "</a>" + partnerInfo + "</p></td><!-- End body --></tr></tbody></div>";
-			console.log(edm);
+		
+		var edm = "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'><html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>\n<head>\n<meta http-equiv='Content-Type' content='text/html;'/>\n<title>General Assembly</title>\n</head>\n<body>\n<span style='font-size: 1px; color: #B8B8B8; margin: 0px;' pardot-region='preview'>" + title +"</span>\n<div style='width: 620px; margin: auto;'>\n\t<table border='0' cellpadding='0' cellspacing='0' width='620px'>\n\t<tbody>\n\t<tr>\n\t\t<td style='background: white; padding-top: 44px;'>\n\t\t</td>\n\t</tr>\n\t<tr>\n\t\t<td>\n\t\t\t<table border='0' cellpadding='0' cellspacing='0' width='620px'>\n\t\t\t<tbody>\n\t\t\t<tr>\n\t\t\t\t<td width='30'>\n\t\t\t\t\t&nbsp;\n\t\t\t\t</td>\n\t\t\t\t<td class='' style='background: white; margin-top: 30px; padding-top: 10px; padding-bottom: 10px; border-top: 1px solid black; border-bottom: 1px solid black; font-family: arial, sans-serif; font-size: 13px;' pardot-region='header'>\n\t\t\t\t\t<strong>" + partner1Name + " + General Assembly present...</strong>\n\t\t\t\t</td>\n\t\t\t\t<td width='30'>\n\t\t\t\t\t&nbsp;\n\t\t\t\t</td>\n\t\t\t</tr>\n\t\t\t</tbody>\n\t\t\t</table>\n\t\t</td>\n\t</tr>\n\t<!-- End header -->\n\t<tr>\n\t\t<!-- Start body -->\n\t\t<td class='' style='background: white; padding-bottom: 30px; padding-top: 20px; padding-left: 30px; padding-right: 30px; font-family: georgia, sans-serif; font-size: 16px; font-weight: normal; line-height: 24px; color: black;' pardot-region='content' width='100%'>\n\t\t\t<span style='font-family: georgia, serif; font-size: 67px; line-height: 75px; color: black;'>" + title + "</span><br>\n\t\t\t<a href='" + url + utm + "'><img alt='Friends' height='350' src='" + img + " ' style='-webkit-transform: rotate(0rad); height: 350px; width: 560px; margin: 30px 0;' title='Sign up to Design For Change Hackathon' width='560'></a>\n\t\t\t<p>\n\t\t\t\t" + partner1Name + " + General Assembly have teamed up to bring you the <a href='" + url + utm + "' style='color: #030303; font-family: arial, sans-serif; font-size: 15px; font-weight: bold;'>" + title + "</a> on <span style='color: #030303; font-family: arial, sans-serif; font-size: 15px; font-weight: bold;'>" + date + "</span> from " + eventTime + ". <br>\n\t\t\t\t<br>\n\t\t\t\t " + topText + "\n\t\t\t</p>\n\t\t\t<p>\n\t\t\t\t<strong style='color: #030303; font-family: arial, sans-serif; font-size: 15px;'>Places are very limited and RSVPs are essential</strong>. Best of all: it's totally free, and General Assembly will be providing " + freeStuff + " for all!\n\t\t\t</p>\n\t\t\t<p>\n\t\t\t\t<a href='" + url + utm + "' style='text-decoration: none; color: white; display: inline-block; background: #ff0033; border-bottom: 3px solid #c20027; margin-bottom: 20px; margin-top: 20px; padding-top: 15px; padding-bottom: 12px; width: 560px; text-align: center; font-family: helvetica, arial, sans-serif; font-size: 20px; font-weight: bold;'>FREE Event: Register Here</a>\n\t\t\t</p>\n\t\t\t<p>\n\t\t\t\t<a href='https://generalassemb.ly/" + metro + utm + "' style='color: #030303; font-family: arial, sans-serif; font-size: 15px; font-weight: bold;'>General Assembly</a> is a global tech school teaching the most relevant skills of the 21st century across technology, design, marketing and business.\n\t\t\t</p>\n\t\t\t<p>\n\t\t\t\t<a href='" + partner1Link + "' style='color: #030303; font-family: arial, sans-serif; font-size: 15px; font-weight: bold;'>" + partner1Name + "</a>" + partnerInfo + "\n\t\t\t</p>\n\t\t</td>\n\t\t<!-- End body -->\n\t</tr>\n\t</tbody>\n</div>";
 
 		//Creating Elements
-		$(".column.purchase-module").prepend('<div class="actions" style="margin-bottom: 1rem;"><a href="" id="edmMaker" download="EDM - ' +  title.replace(/\W/g, '') + '.html" class="button fluid js-purchase-attend">Make an EDM!</a></div>')
+		$(".column.purchase-module").prepend('<div class="actions" style="margin-bottom: 1rem;"><a href="" id="edmMaker" download="EDM - ' +  title.replace(/\W/g, '') + '.html" class="button fluid js-purchase-attend">Make an EDM!</a></div>');
 		$('#edmMaker').attr('href', makeTextFile(edm));
 	}
+
+	// Create the Instance Page Link
+
+	$(".column.purchase-module").prepend('<div class="actions" style="margin-bottom: 1rem;"><a href="' + instance + '" class="button fluid js-purchase-attend">Go to Instance Page</a></div>')
+
+	chrome.storage.local.set({
+		url: url,
+		metro: metro,
+		title: title,
+		utm: 'http://generalassemb.ly/education?where=' + metro + utm
+	}, function (result) {
+	    
+		console.log("Variables stored for Ancient Cool");
+	});
 });

@@ -1,12 +1,24 @@
 {
-"name":"Inject DOM",
-"description":"http://stackoverflow.com/questions/14068879",
+"name":"James' GA Marketing Plus+",
+"description":"Does some handy stuff for GA's marketing staff",
 "version":"1",
 "manifest_version":2,
+"permissions": [
+          "storage"
+        ],
 "content_scripts": [
     {
       "matches": ["http://generalassemb.ly/education/*","https://generalassemb.ly/education/*"],
       "js": ["jquery-2.1.3.min.js", "edms.js"]
+    },
+    {
+      "matches": ["http://generalassemb.ly/education*","https://generalassemb.ly/education*"],
+      "js": ["jquery-2.1.3.min.js", "eventpage.js"]
+    },
+    {
+      "matches": ["http://ancient.cool/collect-setup?auto=true"],
+      "js": ["jquery-2.1.3.min.js", "ancient.js"]
     }
+
   ]
 }
