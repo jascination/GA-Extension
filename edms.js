@@ -103,6 +103,7 @@ $(document).ready(function(){
 		title: title,
 		utm: 'http://generalassemb.ly/education?where=' + metro + utm
 	}, function (result) {
+		$(".column.purchase-module").prepend('<div class="actions" style="margin-bottom: 1rem;"><a href="http://ancient.cool/collect?auto=true" class="button fluid js-purchase-attend">Go to Instance Page</a></div>')
 	    
 		console.log("Variables stored for Ancient Cool");
 	});
