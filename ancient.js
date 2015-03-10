@@ -13,27 +13,30 @@ function getUrlParameter(sParam)
     }
 }  
 
-if(getUrlParameter('auto')){
-	console.log("We're in Auto Land");
-	var obj = {};
+$(document).ready(function(){
+	if(getUrlParameter('auto')){
+		console.log("We're in Auto Land");
+		var obj = {};
 
-	// Retrieve Each
-    chrome.storage.local.get('url', function (result) {
-        obj.url = result.url;
-        chrome.storage.local.get('metro', function (result) {
-	        obj.metro = result.metro;
-	        chrome.storage.local.get('title', function (result) {
-		        obj.title = result.title;
-		        chrome.storage.local.get('utm', function (result) {
-			        obj.utm = result.utm;
-			        console.log(obj);		        
-				   	$('#q1').val(obj.title);
-				   	$('#q2').val('Welcome to ' + obj.title);
-				   	$('#q3').val('Presented by General Assembly');
-				   	$('#q6').val(obj.utm);
-				   	$('#q7').val(obj.metro);
+		// Retrieve Each
+	    chrome.storage.local.get('url', function (result) {
+	        obj.url = result.url;
+	        chrome.storage.local.get('metro', function (result) {
+		        obj.metro = result.metro;
+		        chrome.storage.local.get('title', function (result) {
+			        obj.title = result.title;
+			        chrome.storage.local.get('utm', function (result) {
+				        obj.utm = result.utm;
+				        console.log($('#q1'));
+				        console.log("obj is: ", obj);		        
+					   	$('#q1').val(obj.title);
+					   	$('#q2').val('Welcome to ' + obj.title);
+					   	$('#q3').val('Presented by General Assembly');
+					   	$('#q6').val(obj.utm);
+					   	$('#q7').val(obj.metro);
+				   	});
 			   	});
 		   	});
 	   	});
-   	});
-}
+	}
+});
