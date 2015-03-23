@@ -9,3 +9,19 @@ $(document).ready(function(){
 		}
 	}
 });
+
+
+// Add in functionality to create "What's on at GA" slide for TVs
+
+var arr = [];
+
+$('.catalog-items>div>div').each(function(index){
+if($(this).hasClass('date-divider')){
+ arr.push({day: $(this).text().trim(), classes: []})
+}else{
+  var t = $('.catalog-items>div>div:eq(' + index + ') .item-title').text().trim();
+  var d = $('.catalog-items>div>div:eq(' + index + ') .date-details:eq(1)').text().trim();
+  
+  arr[arr.length -1].classes.push({title: t, time: d})
+}
+})
