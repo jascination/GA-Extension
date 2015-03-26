@@ -33,10 +33,12 @@ $(document).ready(function(){
 	}, function (result) {
 		$('.content-area-grey').attr('style', 'position:relative;');
 		$('.content-area-grey').prepend('<div class="clearfix yo" style="position: absolute;top: 30px;right: 50px;"></div>');
-		$('.yo').prepend('<div class="actions" style="position:relative; z-index:100;  display: block; width: 300px;"><button style="font-size:1em; margin-bottom: 1rem; padding:1rem;" onclick="window.open(\'http://ancient.cool/static/html-template/\', \'newwindow\', \'width=1280, height=720\'); return false;" class="button fluid js-purchase-attend">Make "Whats On" For TV</button></div>')
-	    $('.yo').prepend('<div class="actions" style="position:relative; z-index:100;  display: block; width: 300px;"><button style="font-size:1em; margin-bottom: 1rem; padding:1rem;" onclick="window.open(\'http://ancient.cool/static/html-template/ontoday.html\', \'newwindow\', \'width=1280, height=720\'); return false;" class="button fluid js-purchase-attend">Make "On Today" For TV</button></div>')
-	    $('.yo').prepend('<div class="actions" style="position:relative; z-index:100;  display: block; width: 300px;"><button style="font-size:1em; margin-bottom: 1rem; padding:1rem;" onclick="window.open(\'http://ancient.cool/static/html-template/quotes.html\', \'newwindow\', \'width=1280, height=720\'); return false;" class="button fluid js-purchase-attend">Make "Quote of the Day" For TV</button></div>')
-	    
+		$('.yo').prepend('<div class="actions" style="position:relative; z-index:100;  display: block; width: 300px;"><button style="font-size:1em; margin-bottom: 1rem; padding:1rem;" class="button fluid js-purchase-attend">Generate TV Images</button></div>')
+
+		$('.yo button').click(function(){
+			window.open('http://ancient.cool/static/html-template/index.html?auto=true', 'newwindow', 'width=1280, height=720');
+		});
+
 		console.log("Events stored for What's On Template");
 	});
 

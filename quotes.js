@@ -1,4 +1,20 @@
+
+function getUrlParameter(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {
+            return sParameterName[1];
+        }
+    }
+} 
+
 $(document).ready(function(){
+
 	console.log("We're in Auto Land");
 	
 	var quotes = [
@@ -91,5 +107,11 @@ $(document).ready(function(){
 
 
     $('#quote').append(classes);
-    
+
+   	if(getUrlParameter('auto') === 'true'){
+		setTimeout(function() {
+			chrome.runtime.sendMessage({action: "screenshot", name: "quote"});
+		}, 1500);
+        
+   	} 
 });

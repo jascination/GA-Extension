@@ -5,8 +5,13 @@
 "manifest_version":2,
 "permissions": [
           "storage",
-          "tabs"
+          "tabs",
+          "activeTab",
+          "<all_urls>"
         ],
+"background": {
+    "scripts": ["background.js"]
+  },
 "content_scripts": [
     {
       "matches": ["http://generalassemb.ly/education/*","https://generalassemb.ly/education/*"],
@@ -21,15 +26,15 @@
       "js": ["jquery-2.1.3.min.js", "ancient.js"]
     },
     {
-      "matches": ["http://ancient.cool/static/html-template/"],
+      "matches": ["http://ancient.cool/static/html-template/index.html*"],
       "js": ["jquery-2.1.3.min.js", "whatson.js"]
     },
     {
-      "matches": ["http://ancient.cool/static/html-template/ontoday.html"],
+      "matches": ["http://ancient.cool/static/html-template/ontoday.html*"],
       "js": ["jquery-2.1.3.min.js", "ontoday.js"]
     },
     {
-      "matches": ["http://ancient.cool/static/html-template/quotes.html"],
+      "matches": ["http://ancient.cool/static/html-template/quotes.html*"],
       "js": ["jquery-2.1.3.min.js", "quotes.js"]
     }
 

@@ -1,7 +1,18 @@
-
+function getUrlParameter(sParam)
+{
+    var sPageURL = window.location.search.substring(1);
+    var sURLVariables = sPageURL.split('&');
+    for (var i = 0; i < sURLVariables.length; i++) 
+    {
+        var sParameterName = sURLVariables[i].split('=');
+        if (sParameterName[0] == sParam) 
+        {
+            return sParameterName[1];
+        }
+    }
+} 
 
 $(document).ready(function(){
-	console.log("We're in Auto Land");
 	var arr = [];
 
 	// Retrieve Each
@@ -38,6 +49,37 @@ $(document).ready(function(){
             }
 
             $('#big-table table').append('<tr class="date din"><td>' + day + '</td><td>' + date + '</td></tr>' + classes + '<tr class="empty news"><td></td><td></td></tr>');
+        }
+
+        // Make sure height is 1240px 
+
+        while($('.whole').height() > 1280){
+           $('.white-top-bottom tr:last-child').remove()
+        }
+        while($('.white-top-bottom tr:last-child').hasClass('date') || $('.white-top-bottom tr:last-child').hasClass('empty')){
+           $('.white-top-bottom tr:last-child').remove()
+        }
+
+        // Fill out the empty rows
+
+        $('tr.empty td').css('padding', '0');
+        var curr = $('tr.empty:eq(0)').height();
+        var empties = $('tr.empty').length;
+
+        var extra = 1240 - $('.whole').height();
+
+        $('tr.empty').each(function(){
+          $(this).attr('height', curr + (extra / empties))
+        })
+
+        if(getUrlParameter('auto') === 'true'){
+            setTimeout(function() {  
+                chrome.runtime.sendMessage({action: "screenshot", name: "whatson"});
+                setTimeout(function(){
+                    window.location.href = 'http://ancient.cool/static/html-template/ontoday.html?auto=true';
+                }, 500);
+            }, 1500);            
+            
         }
         
    	});
