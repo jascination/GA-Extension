@@ -10,7 +10,8 @@
           "<all_urls>"
         ],
 "background": {
-    "scripts": ["background.js"]
+        "persistent": false,
+        "scripts": ["background.js"]
   },
 "content_scripts": [
     {
@@ -22,7 +23,7 @@
       "js": ["jquery-2.1.3.min.js", "eventpage.js"]
     },
     {
-      "matches": ["http://ancient.cool/collect-setup?auto=true"],
+      "matches": ["http://ancient.cool/collect-setup*", "http://www.ancient.cool/collect-setup*"],
       "js": ["jquery-2.1.3.min.js", "ancient.js"]
     },
     {

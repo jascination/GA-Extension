@@ -1,4 +1,6 @@
 
+console.log("YEAH?");
+
 function getUrlParameter(sParam)
 {
     var sPageURL = window.location.search.substring(1);
@@ -12,9 +14,10 @@ function getUrlParameter(sParam)
         }
     }
 }  
+	
 
 $(document).ready(function(){
-	if(getUrlParameter('auto')){
+	if(getUrlParameter('auto') === "true"){
 		console.log("We're in Auto Land");
 		var obj = {};
 
