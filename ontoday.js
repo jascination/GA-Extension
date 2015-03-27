@@ -31,16 +31,22 @@ $(document).ready(function(){
 
         var classes = '';
 
-        if(curr.day != "Today"){
-            classes += "<p>" + curr.day + ":</p>";
-        }
+        // Say "Today" or "Tomorrow" or whatever
+            classes += "<p class='din'>" + curr.day + ":</p>";
+
 
         for(var x = 0; x<curr.classes.length; x++){
-            classes += "<p>" + curr.classes[x].title + "<br><br>\
-                          " + curr.classes[x].time + "</p>"
+            classes += "<p class='today-title'>" + curr.classes[x].title + "</p>\
+                        <p class='today-time'>" + curr.classes[x].time + "</p>"
         }
 
         $('#quote').append(classes);
+
+        while($(".whole").height() > 1240){
+          var size = parseInt($('.second-title.news').css('font-size').split('px')[0]);
+              size -= 2;
+              $('.second-title.news').css('font-size', size);
+        }
     
         if(getUrlParameter('auto') === 'true'){
             setTimeout(function() {  

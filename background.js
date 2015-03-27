@@ -20,7 +20,7 @@ var screenshot = {
 			// save the image
 			var link = document.createElement('a');
 			link.download = shotname + ".jpg";
-			link.href = screenshot.content.toDataURL('image/jpeg', 0.5);
+			link.href = screenshot.content.toDataURL('image/jpeg', 0.6);
 			link.click();
 			screenshot.data = '';
 		};
