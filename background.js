@@ -20,7 +20,7 @@ var screenshot = {
 			// save the image
 			var link = document.createElement('a');
 			link.download = shotname + ".jpg";
-			link.href = screenshot.content.toDataURL();
+			link.href = screenshot.content.toDataURL('image/jpeg', 0.5);
 			link.click();
 			screenshot.data = '';
 		};
@@ -39,7 +39,7 @@ var screenshot = {
 
 				chrome.tabs.captureVisibleTab(null, {
 					format : "jpeg",
-					quality : 60
+					quality : 100
 				}, function(data) {
 					screenshot.data = data;
 					screenshot.saveScreenshot();

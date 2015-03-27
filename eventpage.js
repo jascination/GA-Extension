@@ -28,6 +28,7 @@ $(document).ready(function(){
 	});
 
 
+
 	chrome.storage.local.set({
 		whatsOn: arr2
 	}, function (result) {

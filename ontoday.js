@@ -31,6 +31,10 @@ $(document).ready(function(){
 
         var classes = '';
 
+        if(curr.day != "Today"){
+            classes += "<p>" + curr.day + ":</p>";
+        }
+
         for(var x = 0; x<curr.classes.length; x++){
             classes += "<p>" + curr.classes[x].title + "<br><br>\
                           " + curr.classes[x].time + "</p>"
