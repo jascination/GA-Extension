@@ -105,7 +105,7 @@ $(document).ready(function(){
 		title: title,
 		utm: 'http://generalassemb.ly/education?where=' + metro + utm
 	}, function (result) {
-		$(".column.purchase-module").prepend('<div class="actions" style="margin-bottom: 1rem;"><a href="http://www.ancient.cool/collect?auto=true" target="_blank" class="button fluid js-purchase-attend">Auto-Collect Checkins</a></div>')
+		$(".column.purchase-module").prepend('<div class="actions" style="margin-bottom: 1rem;"><a href="http://www.ancient.cool/collect-setup?auto=true" target="_blank" class="button fluid js-purchase-attend">Auto-Collect Checkins</a></div>')
 	    
 		console.log("Variables stored for Ancient Cool");
 	});
